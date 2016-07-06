@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F239C7291D23D81A00A88873 /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F239C7281D23D81A00A88873 /* BeaconManager.swift */; };
+		F239C72B1D23DBC300A88873 /* BeaconListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = F239C72A1D23DBC300A88873 /* BeaconListener.swift */; };
 		F29953A21D226842002BD133 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29953A11D226842002BD133 /* AppDelegate.swift */; };
 		F29953A41D226842002BD133 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29953A31D226842002BD133 /* ViewController.swift */; };
 		F29953A71D226842002BD133 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F29953A51D226842002BD133 /* Main.storyboard */; };
 		F29953A91D226842002BD133 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F29953A81D226842002BD133 /* Assets.xcassets */; };
 		F29953AC1D226842002BD133 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F29953AA1D226842002BD133 /* LaunchScreen.storyboard */; };
+		F29953B61D2272A4002BD133 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29953B51D2272A4002BD133 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F239C7281D23D81A00A88873 /* BeaconManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconManager.swift; sourceTree = "<group>"; };
+		F239C72A1D23DBC300A88873 /* BeaconListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconListener.swift; sourceTree = "<group>"; };
 		F299539E1D226842002BD133 /* BeaconBus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeaconBus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F29953A11D226842002BD133 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F29953A31D226842002BD133 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +27,7 @@
 		F29953A81D226842002BD133 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F29953AB1D226842002BD133 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F29953AD1D226842002BD133 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F29953B51D2272A4002BD133 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,9 @@
 				F29953A81D226842002BD133 /* Assets.xcassets */,
 				F29953AA1D226842002BD133 /* LaunchScreen.storyboard */,
 				F29953AD1D226842002BD133 /* Info.plist */,
+				F29953B51D2272A4002BD133 /* LocationManager.swift */,
+				F239C7281D23D81A00A88873 /* BeaconManager.swift */,
+				F239C72A1D23DBC300A88873 /* BeaconListener.swift */,
 			);
 			path = BeaconBus;
 			sourceTree = "<group>";
@@ -96,6 +105,7 @@
 				TargetAttributes = {
 					F299539D1D226842002BD133 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 793Z38F3BF;
 					};
 				};
 			};
@@ -136,7 +146,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F29953A41D226842002BD133 /* ViewController.swift in Sources */,
+				F239C7291D23D81A00A88873 /* BeaconManager.swift in Sources */,
 				F29953A21D226842002BD133 /* AppDelegate.swift in Sources */,
+				F29953B61D2272A4002BD133 /* LocationManager.swift in Sources */,
+				F239C72B1D23DBC300A88873 /* BeaconListener.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,10 +262,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BeaconBus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hciotw.BeaconBus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -260,10 +276,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BeaconBus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hciotw.BeaconBus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -286,6 +305,7 @@
 				F29953B21D226842002BD133 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
