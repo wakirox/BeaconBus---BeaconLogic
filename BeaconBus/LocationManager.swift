@@ -38,6 +38,7 @@ extension ViewController : BeaconListener{
         // Starts monitoring the specified iBeacon Region
         locationManager.startMonitoringForRegion(beaconRegion)
         locationManager.pausesLocationUpdatesAutomatically = false
+        self.locationManager.allowsBackgroundLocationUpdates = true
     }
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {

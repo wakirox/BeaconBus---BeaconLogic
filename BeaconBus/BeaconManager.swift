@@ -11,8 +11,10 @@ import CoreLocation
 
 class BeaconManager{
     
-    
+    static let DEBUG_NOTIFY = true;
     static let instance = BeaconManager();
+    
+    var appActive = true;
     
     static let BEACON_BUS : Int = 0;
     static let BEACON_STOP : Int = 1;
@@ -108,6 +110,10 @@ class BeaconManager{
             self.currentState = state;	
         }else{
             return
+        }
+        
+        if(BeaconManager.DEBUG_NOTIFY){
+            NSLog("changed to : \(self.currentState.rawValue)")
         }
         
         beaconListener?.readState(state, shouldPay: pay)

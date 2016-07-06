@@ -16,12 +16,16 @@ class ViewController: UIViewController ,CBPeripheralManagerDelegate{
 
     @IBOutlet weak var shouldPayLabel: UILabel!
     
+    
     let locationManager = CLLocationManager()
     let myBTManager = CBPeripheralManager()
     var lastStage = CLProximity.Unknown
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
         
         beaconStatus.textAlignment = .Center
         
@@ -34,6 +38,10 @@ class ViewController: UIViewController ,CBPeripheralManagerDelegate{
         
         if(shouldPay){
             shouldPayLabel.text = "Give us your money"
+            
+            sendUINotification("Dovresti pagare il bus")
+        }else{
+            sendUINotification(state.rawValue)
         }
         
         simpleAlert("Beacon", message: state.rawValue)
@@ -52,6 +60,16 @@ class ViewController: UIViewController ,CBPeripheralManagerDelegate{
         if peripheral.state == CBPeripheralManagerState.PoweredOff {
             
             simpleAlert("Beacon", message: "Turn On Your Device Bluetooh")
+        }
+    }
+    
+    
+    func sendUINotification(state : String){
+        
+        if(!BeaconManager.instance.appActive || true){
+            let notification = UILocalNotification()
+            notification.alertBody = state
+            UIApplication.sharedApplication().presentLocalNotificationNow(notification)
         }
     }
 
