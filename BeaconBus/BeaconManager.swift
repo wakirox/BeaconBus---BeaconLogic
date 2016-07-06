@@ -13,8 +13,7 @@ class BeaconManager{
     
     static let DEBUG_NOTIFY = true;
     static let instance = BeaconManager();
-    
-    var appActive = true;
+
     
     static let BEACON_BUS : Int = 0;
     static let BEACON_STOP : Int = 1;
@@ -104,18 +103,14 @@ class BeaconManager{
     
     func changeCurrentState(state: State){
         
-        let pay : Bool = currentState == .IN_BUS || state == 		.STOP_CROSSING
+        let pay : Bool = currentState == .IN_BUS || state == .STOP_CROSSING
         
         if(state != currentState && state != .OUT_OF_RANGE){
             self.currentState = state;	
         }else{
             return
         }
-        
-        if(BeaconManager.DEBUG_NOTIFY){
-            NSLog("changed to : \(self.currentState.rawValue)")
-        }
-        
+    
         beaconListener?.readState(state, shouldPay: pay)
     
     }

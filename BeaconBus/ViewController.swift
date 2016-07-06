@@ -66,7 +66,7 @@ class ViewController: UIViewController ,CBPeripheralManagerDelegate{
     
     func sendUINotification(state : String){
         
-        if(!BeaconManager.instance.appActive || true){
+        if(UIApplication.sharedApplication().applicationState != .Active){
             let notification = UILocalNotification()
             notification.alertBody = state
             UIApplication.sharedApplication().presentLocalNotificationNow(notification)
